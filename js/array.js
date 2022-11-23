@@ -22,8 +22,17 @@ $(document).ready(function () {
       element.removeEventListener("click", update_data);
       element.removeEventListener("click", add_new);
       element.addEventListener("click", replay_data);
+    } else if (vl == 4) {
+
+      delete_data();
     }
   });
+
+  function delete_data() {
+    student.splice(-1);
+    show_data(student);
+    alert(student)
+  }
 
   function replay_data() {
     var tt = $("#data").val()
