@@ -27,7 +27,6 @@ $(document).ready(function () {
 
   function replay_data() {
     var tt = $("#data").val()
-    alert(tt)
     student.splice(3, 1, tt);
     show_data(student);
   }
@@ -35,7 +34,6 @@ $(document).ready(function () {
   function add_new() {
     var dt = $("#data").val();
     var vl = $("#chuc_nang").val()
-
     if (student.length == 0) {
       student = dt.split(",");
     } else {
