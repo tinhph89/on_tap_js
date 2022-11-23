@@ -4,19 +4,33 @@ $(document).ready(function () {
   $(".show_txt").hide();
   $('#chuc_nang').change(function () {
     var vl = $("#chuc_nang").val()
+    const element = document.getElementById("nhap_ten");
     if (vl == 1) {
       $(".show_txt").show();
-      const element = document.getElementById("nhap_ten");
       element.addEventListener("click", add_new);
+      element.removeEventListener("click", replay_data);
+      element.removeEventListener("click", update_data);
     } else if (vl == 5) {
       show_data(student);
     } else if (vl == 2) {
       $("#data").val("");
-      const element = document.getElementById("nhap_ten");
+      element.removeEventListener("click", replay_data);
       element.removeEventListener("click", add_new);
       element.addEventListener("click", update_data);
+    } else if (vl == 3) {
+      $("#data").val("");
+      element.removeEventListener("click", update_data);
+      element.removeEventListener("click", add_new);
+      element.addEventListener("click", replay_data);
     }
   });
+
+  function replay_data() {
+    var tt = $("#data").val()
+    alert(tt)
+    student.splice(3, 1, tt);
+    show_data(student);
+  }
 
   function add_new() {
     var dt = $("#data").val();
